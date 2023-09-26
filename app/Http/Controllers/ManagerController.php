@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use Http\Requests\CreateNewsRequest;
 use Http\Requests\UpdateNewsRequest;
+use Auth;
 
 class ManagerController extends Controller
 {
  
+    public function __construct()
+    {
+        $this->middleware('auth','manager');
+    }
  
     public function index()
     {
